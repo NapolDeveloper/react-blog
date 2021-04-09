@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { RadialBarChart, RadialBar, Tooltip, Legend, Pie, Cell, PieChart } from 'recharts';
 // Chart's data
 const data = [
@@ -47,10 +46,6 @@ const data = [
   }
 ];
 
-const propTypes = {};
-
-const defaultProps = {};
-
 export default function Charts(props) {
   return (
     <React.Fragment>
@@ -62,6 +57,3 @@ export default function Charts(props) {
     </React.Fragment>
   );
 }
-
-Charts.propTypes = propTypes;
-Charts.defaultProps = defaultProps;

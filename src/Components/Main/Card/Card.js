@@ -1,17 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import CardInfo from '../CardInfo/CardInfo';
 
-// 1. CardContainer는 Main으로 옮기기.
-// 2. Main에서 <Card props->로 내용 전달>
+// components
+import CardInfo from '../CardInfo/CardInfo';
+import Profile from '../../Profile/Profile';
 
 const CardObj = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  background-color: white;
   width: 200px;
   height: 300px;
   margin: 30px 20px;
@@ -45,21 +44,23 @@ const CardDescription = styled.div`
   text-align: center;
 `;
 
-const propTypes = {};
-
-const defaultProps = {};
-
-export default function Card(props) {
+export default function Card(props, { handleInfo }) {
+  const [isActive, setActive] = useState('off');
+  // 다른 카드를 누르면 on, off가 중복되는 현상 존재. 해결방안 찾아야함
+  const handleClick = () => {
+    setActive(isActive === 'off' ? 'on' : 'off');
+    console.log(isActive);
+    if (isActive) {
+    }
+  };
+  const { title, des } = props;
   return (
     <React.Fragment>
-      <CardObj>
+      <CardObj onClick={handleInfo}>
         <CardProfile></CardProfile>
-        <CardTitle>{props.title}</CardTitle>
-        <CardDescription>{props.des}</CardDescription>
+        <CardTitle>{title}</CardTitle>
+        <CardDescription>{des}</CardDescription>
       </CardObj>
     </React.Fragment>
   );
 }
-
-Card.propTypes = propTypes;
-Card.defaultProps = defaultProps;

@@ -1,30 +1,22 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 // import Slider from 'react-slick';
 import Slider from 'react-slick';
 import Card from '../Card/Card';
 import styled from 'styled-components';
 
-// import profile from '/Users/napol/Desktop/Develope/react-blog/src/Images/profile.jpeg';
-import profileIcon from '../../../Images/profile.jpeg';
-const test =
-  'https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.apple.com%2Fac%2Fstructured-data%2Fimages%2Fknowledge_graph_logo.png%3F201812022340&imgrefurl=https%3A%2F%2Fwww.apple.com%2Fkr%2F&tbnid=-TtEc9M5pE7LPM&vet=12ahUKEwiO6LPQ8dDvAhUKBaYKHTYSBx8QMygBegUIARDPAQ..i&docid=RWGbpV6HOVK4EM&w=302&h=302&q=apple&ved=2ahUKEwiO6LPQ8dDvAhUKBaYKHTYSBx8QMygBegUIARDPAQ';
-const propTypes = {};
-
-const defaultProps = {};
+// styles
+import { SlideUpAnimation } from '../../../Styles/Animation';
 
 export default class CardSlider extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
-
   render() {
     const cardData = [
       {
         title: 'Kim Hyunjae',
-        des: 'Frontend Developer',
-        profile: '/Users/napol/Desktop/Develope/react-blog/src/Images/logo.png'
+        des: 'Frontend Developer'
       },
       {
         title: 'React.JS',
@@ -48,9 +40,9 @@ export default class CardSlider extends React.Component {
       }
     ];
 
-    const cardList = cardData.map((testList) => (
+    const cardList = cardData.map((testList, index) => (
       <div>
-        <Card title={testList.title} des={testList.des}></Card>
+        <Card key={index} title={testList.title} des={testList.des} profile={testList.profile} handleInfo={this.props.handleInfo}></Card>
       </div>
     ));
     const settings = {
@@ -60,7 +52,7 @@ export default class CardSlider extends React.Component {
       slidesToShow: 3,
       slidesToScroll: 1,
       autoplay: true,
-      autoplaySpeed: 20000,
+      autoplaySpeed: 2000,
       pauseOnHover: true,
       arrows: false,
       variableWidth: true,
@@ -69,13 +61,12 @@ export default class CardSlider extends React.Component {
 
     return (
       <React.Fragment>
-        <div>
-          <Slider {...settings}>{cardList}</Slider>
-        </div>
+        <SlideUpAnimation style={{ animationDelay: '.9s' }}>
+          <div>
+            <Slider {...settings}>{cardList}</Slider>
+          </div>
+        </SlideUpAnimation>
       </React.Fragment>
     );
   }
 }
-
-CardSlider.propTypes = propTypes;
-CardSlider.defaultProps = defaultProps;

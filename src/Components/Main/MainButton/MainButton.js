@@ -1,6 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
+
+// styles
+import { SlideUpAnimation } from '../../../Styles/Animation';
 
 const BtnContainer = styled.div`
   display: flex;
@@ -11,6 +13,7 @@ const BtnContainer = styled.div`
   /* height: 50px; */
 `;
 
+// 브라우저별로 스타일이 조금씩 다른 현상 - 보완 필요
 const MainBtn = styled.button`
   display: flex;
   align-items: center;
@@ -33,24 +36,28 @@ const BtnText = styled.span`
   font-size: 16px;
 `;
 
-const propTypes = {};
-
-const defaultProps = {};
-
 export default function MainButton(props) {
   return (
     <React.Fragment>
-      <BtnContainer>
-        <MainBtn blue>
-          <BtnText>Get Started Now</BtnText>
-        </MainBtn>
-        <MainBtn>
-          <BtnText>Go Github!</BtnText>
-        </MainBtn>
-      </BtnContainer>
+      <SlideUpAnimation style={{ animationDelay: '.6s' }}>
+        <BtnContainer>
+          <MainBtn
+            blue
+            onClick={() => {
+              window.open('https://naver.com');
+            }}
+          >
+            <BtnText>Get Started Now</BtnText>
+          </MainBtn>
+          <MainBtn
+            onClick={() => {
+              window.open('https://github.com/NapolDeveloper');
+            }}
+          >
+            <BtnText>Go Github!</BtnText>
+          </MainBtn>
+        </BtnContainer>
+      </SlideUpAnimation>
     </React.Fragment>
   );
 }
-
-MainButton.propTypes = propTypes;
-MainButton.defaultProps = defaultProps;

@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle, keyframes } from 'styled-components';
 import reset from 'styled-reset';
 
 import 'slick-carousel/slick/slick.css';

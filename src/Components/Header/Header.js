@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import logoImage from '../../Images/logo.png';
 const Container = styled.div`
@@ -55,24 +54,23 @@ const Menu = styled.div`
   }
 `;
 
-const propTypes = {};
-
-const defaultProps = {};
-
 export default function Header(props) {
   return (
     <React.Fragment>
       <Container>
         <Logo />
         <MenuBar>
-          <Menu>Features</Menu>
-          <Menu>Github</Menu>
-          <Menu>Documentation</Menu>
+          {/* 스타일 미리 만들어두고 공통으로 적용 */}
+          <Link to={'/'} style={{ textDecoration: 'none' }}>
+            <Menu>Main</Menu>
+          </Link>
+          <Link to={'/profile'} style={{ textDecoration: 'none' }}>
+            <Menu>Profile</Menu>
+          </Link>
+          <Menu onClick={() => window.open('https://github.com/NapolDeveloper')}>Github</Menu>
+          <Menu>Album</Menu>
         </MenuBar>
       </Container>
     </React.Fragment>
   );
 }
-
-Header.propTypes = propTypes;
-Header.defaultProps = defaultProps;

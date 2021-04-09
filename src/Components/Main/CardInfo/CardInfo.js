@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const InfoBox = styled.div`
@@ -15,10 +14,6 @@ const InfoBox = styled.div`
   box-shadow: 0px 10px 10px 5px rgba(0, 0, 0, 0.15);
 `;
 
-const propTypes = {};
-
-const defaultProps = {};
-
 export default class CardInfo extends React.Component {
   constructor(props) {
     super(props);
@@ -33,6 +28,3 @@ export default class CardInfo extends React.Component {
     );
   }
 }
-
-CardInfo.propTypes = propTypes;
-CardInfo.defaultProps = defaultProps;
