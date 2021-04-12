@@ -51,7 +51,7 @@ export default class App extends React.Component {
             <Switch>
               <MainAnimation>
                 <Route exact path='/' render={() => <Main handleInfo={handleInfo} />} />
-                <Route exact path='/profile' component={Profile} />
+                <Route exact path='/profile' render={() => <Profile />} />
               </MainAnimation>
             </Switch>
           </AppStyled>

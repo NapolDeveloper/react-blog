@@ -37,7 +37,6 @@ const SlideUp = keyframes`
     opacity: 1;
   }
 `;
-
 const SlideUpAnimation = styled.div`
   opacity: 0;
   animation: ${SlideUp} 0.8s ease-out forwards;

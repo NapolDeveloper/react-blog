@@ -24,12 +24,13 @@ const CardObj = styled.div`
 `;
 
 const CardProfile = styled.div`
-  background-image: url(${(props) => props.profile});
-  width: 70px;
-  height: 70px;
+  background-image: url(${(props) => props.img});
   background-size: cover;
+  background-position: center;
+  width: 75px;
+  height: 75px;
   border-radius: 50%;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 `;
 
 const CardTitle = styled.div`
@@ -57,7 +58,8 @@ export default function Card(props, { handleInfo }) {
   return (
     <React.Fragment>
       <CardObj onClick={handleInfo}>
-        <CardProfile></CardProfile>
+        {/* CardSlider 에서 받은 props를 CardProfile 스타일 컴포넌트로 props로 다시 전달 */}
+        <CardProfile img={props.img}></CardProfile>
         <CardTitle>{title}</CardTitle>
         <CardDescription>{des}</CardDescription>
       </CardObj>

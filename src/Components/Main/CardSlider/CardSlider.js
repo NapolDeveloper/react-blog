@@ -1,8 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 // import Slider from 'react-slick';
 import Slider from 'react-slick';
 import Card from '../Card/Card';
 import styled from 'styled-components';
+
+// import card profile images
+import CardProfile from '../../../Images/profile.jpeg';
+import ReactBlack from '../../../Images/react-black.png';
+import ReactNative from '../../../Images/react-native.png';
+import NodeJs from '../../../Images/nodejs.png';
+import Svelte from '../../../Images/svelte.png';
+import Vue from '../../../Images/vuejs.jpeg';
 
 // styles
 import { SlideUpAnimation } from '../../../Styles/Animation';
@@ -16,33 +25,42 @@ export default class CardSlider extends React.Component {
     const cardData = [
       {
         title: 'Kim Hyunjae',
-        des: 'Frontend Developer'
+        des: 'Frontend Developer',
+        img: CardProfile,
+        link: '/profile'
       },
       {
-        title: 'React.JS',
-        des: 'About React.JS'
-      },
-      {
-        title: 'Modern CSS',
-        des: 'About Modern CSS like styled-component'
+        title: 'React.js',
+        des: 'About React.js',
+        img: ReactBlack
       },
       {
         title: 'React.Native',
-        des: 'About React.Native'
+        des: 'About React.Native',
+        img: ReactNative
       },
       {
-        title: 'test2',
-        des: 'test2'
+        title: 'Svelte',
+        des: 'About Svelte',
+        img: Svelte
       },
       {
-        title: 'test3',
-        des: 'test3'
+        title: 'Node.js',
+        des: 'About Node.js',
+        img: NodeJs
+      },
+      {
+        title: 'Vue.js',
+        des: 'About Vue.js',
+        img: Vue
       }
     ];
 
-    const cardList = cardData.map((testList, index) => (
+    const cardList = cardData.map((cardList, index) => (
       <div>
-        <Card key={index} title={testList.title} des={testList.des} profile={testList.profile} handleInfo={this.props.handleInfo}></Card>
+        <Link to={cardList.link} style={{ textDecoration: 'none' }}>
+          <Card key={index} title={cardList.title} des={cardList.des} img={cardList.img} />
+        </Link>
       </div>
     ));
     const settings = {

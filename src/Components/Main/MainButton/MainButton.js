@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { Link } from 'react-router-dom';
+
 // styles
 import { SlideUpAnimation } from '../../../Styles/Animation';
 
@@ -13,7 +15,7 @@ const BtnContainer = styled.div`
   /* height: 50px; */
 `;
 
-// 브라우저별로 스타일이 조금씩 다른 현상 - 보완 필요
+// div로 만들 경우 브라우저별로 스타일 호환성 다름 - 보완 또는 button으로 제작
 const MainBtn = styled.button`
   display: flex;
   align-items: center;
@@ -41,14 +43,11 @@ export default function MainButton(props) {
     <React.Fragment>
       <SlideUpAnimation style={{ animationDelay: '.6s' }}>
         <BtnContainer>
-          <MainBtn
-            blue
-            onClick={() => {
-              window.open('https://naver.com');
-            }}
-          >
-            <BtnText>Get Started Now</BtnText>
-          </MainBtn>
+          <Link to={'/profile'} style={{ textDecoration: 'none' }}>
+            <MainBtn blue>
+              <BtnText>About Me</BtnText>
+            </MainBtn>
+          </Link>
           <MainBtn
             onClick={() => {
               window.open('https://github.com/NapolDeveloper');

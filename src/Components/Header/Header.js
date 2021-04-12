@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 import logoImage from '../../Images/logo.png';
+import testLogo from '../../Images/test.png';
 const Container = styled.div`
   display: flex;
   align-items: center;
@@ -15,7 +16,7 @@ const Logo = styled.div`
   width: 125px;
   height: 50px;
   background-size: cover;
-  background-image: url(${logoImage});
+  background-image: url(${testLogo});
   cursor: pointer;
 `;
 
@@ -58,7 +59,9 @@ export default function Header(props) {
   return (
     <React.Fragment>
       <Container>
-        <Logo />
+        <Link to={'/'}>
+          <Logo />
+        </Link>
         <MenuBar>
           {/* 스타일 미리 만들어두고 공통으로 적용 */}
           <Link to={'/'} style={{ textDecoration: 'none' }}>
