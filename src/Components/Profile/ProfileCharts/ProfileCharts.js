@@ -1,5 +1,5 @@
 import React from 'react';
-import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, Legend } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 import styled from 'styled-components';
 
@@ -12,39 +12,38 @@ const ChartContainer = styled.div`
   // 정렬은 없애야 할 수도 있음
   align-items: center;
   justify-content: center;
-  margin-top: 60px;
+  margin-top: 150px;
 `;
-
 const data = [
   {
-    subject: 'Javascript',
-    A: 70,
-    fullMark: 150
+    name: 'React.js',
+    now: 50,
+    goal: 100
   },
   {
-    subject: 'React.js',
-    A: 50,
-    fullMark: 150
+    name: 'React.Native',
+    now: 30,
+    goal: 100
   },
   {
-    subject: 'React.Native',
-    A: 10,
-    fullMark: 150
+    name: 'Svelte',
+    now: 0,
+    goal: 100
   },
   {
-    subject: 'Svelte',
-    A: 0,
-    fullMark: 150
+    name: 'Node.js',
+    now: 20,
+    goal: 100
   },
   {
-    subject: 'Node.js',
-    A: 30,
-    fullMark: 150
+    name: 'Vue.js',
+    now: 0,
+    goal: 100
   },
   {
-    subject: 'Japanese',
-    A: 30,
-    fullMark: 150
+    name: 'Japanese',
+    now: 30,
+    goal: 100
   }
 ];
 
@@ -53,13 +52,15 @@ export default function ProfileCharts(props) {
     <React.Fragment>
       <SlideUpAnimation style={{ animationDelay: '0.6s' }}>
         <ChartContainer>
-          <RadarChart outerRadius={90} width={730} height={250} data={data}>
-            <PolarGrid />
-            <PolarAngleAxis dataKey='subject' />
-            <PolarRadiusAxis angle={30} domain={[0, 100]} />
-            <Radar name='Kim Hyunjae' dataKey='A' stroke='#82ca9d' fill='#82ca9d' fillOpacity={0.6} />
+          <BarChart width={950} height={250} data={data} animationDelay={200}>
+            <CartesianGrid strokeDasharray='3 3' />
+            <XAxis dataKey='name' />
+            <YAxis />
+            <Tooltip />
             <Legend />
-          </RadarChart>
+            <Bar dataKey='goal' fill='#8884d8' />
+            <Bar dataKey='now' fill='#82ca9d' />
+          </BarChart>
         </ChartContainer>
       </SlideUpAnimation>
     </React.Fragment>
